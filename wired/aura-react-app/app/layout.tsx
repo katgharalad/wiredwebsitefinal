@@ -17,8 +17,8 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Aura Financial | Future Banking",
-  description: "Advanced financial protocols merged with intuitive design. We provide the infrastructure to accelerate your economic legacy.",
+  title: "Syndx",
+  description: "Objective biomarkers for psychiatry. Transform EEG signals into clinically meaningful insights—before treatment even begins.",
 };
 
 export default function RootLayout({

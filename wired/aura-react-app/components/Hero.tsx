@@ -20,8 +20,7 @@ export default function Hero() {
             transform: 'translateZ(0)'
           }}
         >
-          Treat the Brain Like the Body. <br />
-          <span className="text-white opacity-90">Objective biomarkers for psychiatry are no longer theoretical.</span>
+          Syndx
         </h1>
 
         <p className="font-sans text-xl lg:text-2xl font-light text-white/70 leading-relaxed tracking-tight max-w-xl mb-12">

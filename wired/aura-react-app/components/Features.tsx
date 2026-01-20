@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Features() {
   useEffect(() => {
@@ -159,100 +160,15 @@ export default function Features() {
             <p className="text-base text-white/50 leading-relaxed mb-12 font-light group-hover:text-white/70 transition-colors">
               Comparing patient score to normative database. Left-frontal hypoactivity detected. 32nd percentile alignment.</p>
 
-            {/* Visual: Hero-Inspired Orbit & Sonar */}
-            <div className="mt-auto relative w-full h-80 flex items-center justify-center perspective-1000">
-              {/* Animated Background Noodles & Beams */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible z-0" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="smart-beam-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#38BDF8" stopOpacity="0" />
-                    <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-
-                {/* Path 1: Top Right into Center */}
-                <path d="M420,40 C320,40 280,160 200,160" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1"></path>
-                <path d="M420,40 C320,40 280,160 200,160" fill="none" stroke="url(#smart-beam-grad)" strokeWidth="1.5" strokeDasharray="100 1000" strokeLinecap="round" className="animate-[beam_3s_linear_infinite]"></path>
-
-                {/* Path 2: Bottom Left into Center */}
-                <path d="M-20,280 C80,280 120,160 200,160" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1"></path>
-                <path d="M-20,280 C80,280 120,160 200,160" fill="none" stroke="url(#smart-beam-grad)" strokeWidth="1.5" strokeDasharray="80 1000" strokeLinecap="round" className="animate-[beam_4s_linear_infinite]"></path>
-
-                {/* Path 3: Vertical Drop */}
-                <path d="M200,0 L200,160" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1" strokeDasharray="2 4">
-                </path>
-              </svg>
-
-              {/* Clean Sonar Rings */}
-              <div className="absolute w-96 h-96 border border-brand-sky/5 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite] opacity-10">
-              </div>
-              <div className="absolute w-80 h-80 border border-white/5 rounded-full animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] opacity-20 delay-700">
-              </div>
-
-              {/* Outer Rotating Ring with Detail */}
-              <div className="absolute w-64 h-64 border border-white/5 rounded-full animate-[spin_40s_linear_infinite]">
-                <div className="absolute top-1/2 -right-1 w-2 h-2 bg-white/10 rounded-full"></div>
-                <div className="absolute top-1/2 -left-1 w-2 h-2 bg-white/10 rounded-full"></div>
-              </div>
-
-              {/* Middle Rotating Ring */}
-              <div className="absolute w-60 h-60 border border-white/10 rounded-full animate-[spin_30s_linear_infinite]">
-              </div>
-
-              {/* Inner Dashed Ring */}
-              <div className="absolute w-44 h-44 border border-white/5 rounded-full animate-[spin_20s_linear_infinite_reverse] border-dashed">
-              </div>
-
-              {/* Active Glow Ring */}
-              <div className="absolute w-36 h-36 border border-brand-sky/20 rounded-full animate-[spin_15s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-brand-sky mt-[-3px] rounded-full shadow-[0_0_10px_rgba(56,189,248,1)]">
-                </div>
-              </div>
-
-              {/* Orbiting Elements */}
-              <div className="absolute w-60 h-60 animate-[spin_30s_linear_infinite]">
-                {/* Gem Node */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#050505] p-2.5 rounded-full border border-white/10 group-hover:border-brand-sky/30 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all duration-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-gem text-white/40 group-hover:text-brand-sky transition-colors">
-                    <path d="M6 3h12l4 6-10 13L2 9Z"></path>
-                    <path d="M11 3 8 9l4 13 4-13-3-6"></path>
-                    <path d="M2 9h20"></path>
-                  </svg>
-                </div>
-                {/* Card Node */}
-                <div className="absolute bottom-0 right-1/2 translate-x-1/2 translate-y-1/2 bg-[#050505] p-2.5 rounded-full border border-white/10 group-hover:border-brand-sky/30 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all duration-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-credit-card text-white/40 group-hover:text-brand-sky transition-colors">
-                    <rect width="20" height="14" x="2" y="5" rx="2"></rect>
-                    <line x1="2" x2="22" y1="10" y2="10"></line>
-                  </svg>
-                </div>
-              </div>
-
-              {/* Central Hub */}
-              <div className="z-10 flex group-hover:border-brand-sky/40 transition-colors duration-500 bg-[#0F110E] w-24 h-24 border-white/10 border rounded-3xl relative items-center justify-center overflow-hidden shadow-2xl">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-layers text-white relative z-20 group-hover:text-brand-sky transition-colors duration-500">
-                  <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path>
-                  <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path>
-                  <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path>
-                </svg>
-                {/* Scanner Effect */}
-                <div className="animate-[pulse_2s_infinite] bg-gradient-to-tr from-transparent via-brand-sky/10 to-transparent absolute top-0 right-0 bottom-0 left-0 z-10">
-                </div>
-                {/* Technical Grid BG */}
-                <div className="absolute inset-0 opacity-20 z-0" style={{ backgroundImage: 'radial-gradient(#fff 0.5px, transparent 0.5px)', backgroundSize: '18px 18px' }}></div>
-              </div>
-
-              <div className="absolute bottom-4 flex flex-col items-center">
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 group-hover:border-brand-sky/20 transition-colors">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-sky opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-sky"></span>
-                  </span>
-                  <div className="text-[10px] text-white/40 font-mono tracking-widest uppercase group-hover:text-white/70 transition-colors">
-                    Normative Comparison Complete</div>
-                </div>
-              </div>
+            {/* Visual: Asymmetry Analysis Screenshot */}
+            <div className="mt-auto relative w-full h-80 rounded-2xl border border-white/10 bg-[#0A0A0A] overflow-hidden shadow-2xl">
+              <Image
+                src="/abcd1.png"
+                alt="Asymmetry analysis showing patient score comparison to normative database"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </div>
           </div>
         </div>
@@ -267,63 +183,15 @@ export default function Features() {
           <h3 className="text-2xl font-semibold tracking-tight text-white mb-4 relative z-10">Clinical Readiness</h3>
           <p className="text-base text-white/50 leading-relaxed mb-12 relative z-10 font-light">Generate structured reports with FAA score, interpretation, and percentile rank. Compatible with standard EHRs and workflows.</p>
 
-          {/* Visual: Dashboard UI */}
-          <div className="relative mt-auto w-full h-72 rounded-2xl border border-white/10 bg-[#0A0A0A] p-7 flex flex-col justify-center gap-6 shadow-2xl">
-            {/* Team Header */}
-            <div className="flex justify-between items-center pb-4 border-b border-white/5">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-none"></span>
-                <span className="text-xs text-white/50 font-mono uppercase tracking-wider">Report Queue</span>
-              </div>
-              <div className="flex -space-x-2">
-                <div className="w-7 h-7 rounded-full border border-[#0A0A0A] bg-white/10 flex items-center justify-center text-white/80 text-[10px] font-medium">
-                  S</div>
-                <div className="w-7 h-7 rounded-full border border-[#0A0A0A] bg-brand-sky/20 flex items-center justify-center text-brand-sky text-[10px] font-medium">
-                  CH</div>
-                <div className="w-7 h-7 rounded-full border border-[#0A0A0A] bg-white/5 flex items-center justify-center text-[9px] text-white/40">
-                  3</div>
-              </div>
-            </div>
-
-            {/* Approval Slider */}
-            <div className="relative py-1">
-              <div className="flex justify-between text-[10px] text-white/40 mb-2 font-mono uppercase">
-                <span className="">Site: Stanford</span>
-                <span className="text-brand-sky">3 FAA Reports Ready</span>
-              </div>
-              <div className="w-full h-2 bg-white/10 rounded-full relative flex items-center">
-                <div className="absolute left-0 h-full w-[100%] bg-white/80 rounded-full"></div>
-                {/* Slider Knob */}
-                <div className="absolute left-[100%] w-4 h-4 bg-white rounded-full z-10 transform -translate-x-1/2 border-2 border-[#0A0A0A] cursor-grab">
-                </div>
-
-                {/* Tooltip */}
-                <div className="absolute left-[100%] -top-9 -translate-x-1/2 bg-[#151515] border border-white/10 text-white text-[10px] px-2.5 py-1.5 rounded shadow-lg whitespace-nowrap animate-bounce">
-                  Signed by Investigator
-                  <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-2 h-2 bg-[#151515] border-r border-b border-white/10 transform rotate-45">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="grid grid-cols-2 gap-4 mt-2">
-              <div className="flex items-center justify-center gap-2 p-3 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 transition-colors cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-history text-white/40">
-                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 12"></path>
-                  <path d="M3 3v9h9"></path>
-                  <path d="M12 7v5l4 2"></path>
-                </svg>
-                <span className="text-xs text-white/60 font-medium">Investigator: CH</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 rounded-lg bg-brand-sky/10 border border-brand-sky/20 cursor-pointer hover:bg-brand-sky/20 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check-circle text-brand-sky">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <path d="m9 11 3 3L22 4"></path>
-                </svg>
-                <span className="text-xs text-brand-sky font-medium">Export to Epic</span>
-              </div>
-            </div>
+          {/* Visual: Clinical Report Screenshot */}
+          <div className="relative mt-auto w-full h-72 rounded-2xl border border-white/10 bg-[#0A0A0A] overflow-hidden shadow-2xl">
+            <Image
+              src="/clinical-report-screenshot.jpeg"
+              alt="Clinical report showing FAA score, interpretation, and percentile rank"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           </div>
         </div>
       </div>
