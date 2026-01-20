@@ -1,0 +1,330 @@
+@import "tailwindcss";
+
+:root {
+  --background: #030303;
+  --foreground: #ffffff;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  /* Brand Colors */
+  --color-brand-sky: #38BDF8;
+  --color-brand-dark: #050505;
+  --color-brand-panel: #0F110E;
+  
+  /* Font Families */
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Newsreader', serif;
+  
+  /* Background Images */
+  --background-image-radial-glow: radial-gradient(circle at 70% 50%, rgba(56, 189, 248, 0.25) 0%, rgba(5, 5, 5, 0) 60%);
+}
+
+body {
+  background-color: #030303;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Utility Classes */
+.text-glow {
+  text-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+}
+
+.grid-bg {
+  background-size: 100px 200px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+.monotone-logo {
+  filter: grayscale(100%) brightness(150%) contrast(0.5);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.monotone-logo:hover {
+  opacity: 1;
+  filter: grayscale(100%) brightness(200%);
+}
+
+.beam-line {
+  stroke-dasharray: 80 1000;
+  stroke-linecap: round;
+}
+
+/* Custom Keyframes for SVG Sonar */
+@keyframes sonar-wave {
+  0% { r: 10px; opacity: 0.8; stroke-width: 1px; }
+  100% { r: 80px; opacity: 0; stroke-width: 0px; }
+}
+
+.animate-sonar {
+  animation: sonar-wave 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.delay-1000 { animation-delay: 1s; }
+.delay-2000 { animation-delay: 2s; }
+
+/* Shiny CTA Button CSS */
+@property --gradient-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+@property --gradient-angle-offset { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+@property --gradient-percent { syntax: "<percentage>"; initial-value: 20%; inherits: false; }
+@property --gradient-shine { syntax: "<color>"; initial-value: #38BDF8; inherits: false; }
+
+.shiny-cta {
+  --gradient-angle: 0deg;
+  --gradient-angle-offset: 0deg;
+  --gradient-percent: 20%;
+  --gradient-shine: #38BDF8;
+  --shadow-size: 2px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1.25rem 2.5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #ffffff;
+  background: linear-gradient(#030303, #030303) padding-box,
+    conic-gradient(from calc(var(--gradient-angle) - var(--gradient-angle-offset)), transparent 0%, #0ea5e9 5%, var(--gradient-shine) 15%, #0ea5e9 30%, transparent 40%, transparent 100%) border-box;
+  border: 2px solid transparent;
+  box-shadow: inset 0 0 0 1px #1a1818;
+  outline: none;
+  transition: --gradient-angle-offset 800ms cubic-bezier(0.25, 1, 0.5, 1), --gradient-percent 800ms cubic-bezier(0.25, 1, 0.5, 1), --gradient-shine 800ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s;
+  cursor: pointer;
+  isolation: isolate;
+  outline-offset: 4px;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  z-index: 0;
+  animation: border-spin 2.5s linear infinite;
+}
+
+@keyframes border-spin { 
+  to { --gradient-angle: 360deg; } 
+}
+
+.shiny-cta:active { 
+  transform: translateY(1px); 
+}
+
+.shiny-cta::before {
+  content: ''; 
+  pointer-events: none; 
+  position: absolute; 
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 0;
+  --size: calc(100% - 6px); 
+  --position: 2px; 
+  --space: 4px; 
+  width: var(--size); 
+  height: var(--size);
+  background: radial-gradient(circle at var(--position) var(--position), white 0.5px, transparent 0) padding-box;
+  background-size: var(--space) var(--space); 
+  background-repeat: space;
+  mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg), black, transparent 10% 90%, black);
+  border-radius: inherit; 
+  opacity: 0.4; 
+  pointer-events: none;
+}
+
+.shiny-cta::after {
+  content: ''; 
+  pointer-events: none; 
+  position: absolute; 
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 1;
+  width: 100%; 
+  aspect-ratio: 1;
+  background: linear-gradient(-50deg, transparent, #0ea5e9, transparent);
+  mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+  opacity: 0.6; 
+  animation: shimmer 4s linear infinite; 
+  animation-play-state: running;
+}
+
+.shiny-cta span { 
+  position: relative; 
+  z-index: 2; 
+  display: inline-block; 
+}
+
+.shiny-cta span::before {
+  content: ''; 
+  pointer-events: none; 
+  position: absolute; 
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: -1;
+  --size: calc(100% + 1rem); 
+  width: var(--size); 
+  height: var(--size);
+  box-shadow: inset 0 -1ex 2rem 4px #0ea5e9; 
+  opacity: 0; 
+  border-radius: inherit;
+  transition: opacity 800ms cubic-bezier(0.25, 1, 0.5, 1); 
+  animation: breathe 4.5s linear infinite;
+}
+
+@keyframes shimmer { 
+  to { transform: translate(-50%, -50%) rotate(360deg);} 
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);}
+  50% { transform: translate(-50%, -50%) scale(1.20);}
+}
+
+/* Shared Border Gradient for Secondary Button */
+[style*="--border-gradient"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: var(--border-radius-before, inherit);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background: var(--border-gradient);
+  pointer-events: none;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.mask-gradient-fade {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Custom Animations */
+@keyframes beam {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-beam {
+  animation: beam 3s linear infinite;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-brand-sky);
+  color: black;
+}
+
+/* Smooth Scrolling Optimizations */
+html {
+  scroll-behavior: smooth;
+}
+
+/* GPU Acceleration for Animations */
+.animate-beam,
+.animate-sonar,
+.animate-spin-slow,
+.animate-spin-slow-reverse,
+.animate-pulse-fast,
+.animate-marquee,
+.animate-pulse,
+.spotlight-card,
+.shiny-cta,
+.text-glow {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize Navigation */
+nav {
+  will-change: transform, opacity;
+  transform: translate3d(-50%, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* Optimize Hero main element */
+main {
+  contain: layout style paint;
+}
+
+/* Optimize SVG paths and circles in Hero */
+svg path,
+svg circle,
+svg g {
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+}
+
+/* Optimize animated SVG elements */
+.animate-beam path,
+.animate-sonar circle,
+.animate-spin-slow circle,
+.animate-pulse circle {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Reduce repaints on hover transitions */
+a, button {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Optimize backdrop blur performance */
+.backdrop-blur-xl,
+.backdrop-blur-3xl {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Optimize SVG animations */
+svg {
+  shape-rendering: geometricPrecision;
+}
+
+/* Reduce repaints on scroll */
+section {
+  contain: layout style paint;
+}
+
+/* Optimize images */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Optimize fixed elements */
+.fixed {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Optimize hover transitions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Reduce layout shifts */
+.relative,
+.absolute {
+  contain: layout;
+}
